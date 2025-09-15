@@ -1,5 +1,21 @@
 function findProductPrice(products, name) {
   // Your code here
+  let left = 0;
+  let rigth = products.length - 1
+
+  //สารภาพบาป จำ syntex ไม่ได้เลยเปิดดู
+  for (let i = 0; i < rigth; i++) {
+    let mid = Math.floor((left + rigth) / 2)
+
+    if (products[mid].name === name) {
+      return products[mid].price;
+    } else if (products[mid].name < name) {
+      left = mid + 1;
+    } else {
+      rigth = mid - 1;
+    }
+  }
+  return -1;
 }
 
 // Test case
